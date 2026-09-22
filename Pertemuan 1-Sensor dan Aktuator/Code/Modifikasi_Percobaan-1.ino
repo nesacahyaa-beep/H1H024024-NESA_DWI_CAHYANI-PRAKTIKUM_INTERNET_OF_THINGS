@@ -21,7 +21,6 @@ void loop() {
     float kelembaban = dht.readHumidity();
     float suhu = dht.readTemperature();
 
-    // Memeriksa apakah hasil pembacaan sensor valid
     if (isnan(kelembaban) || isnan(suhu)) {
       Serial.println("Gagal membaca data dari sensor DHT11!");
     } else {

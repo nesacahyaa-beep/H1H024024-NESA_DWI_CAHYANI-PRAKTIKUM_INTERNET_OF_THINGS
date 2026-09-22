@@ -58,23 +58,23 @@ Kode pada Percobaan 2 Pengontrolan Aktuator Berdasarkan Data Sensor. Berikut ada
 | Pin IN Relay  |   GPIO 26    | `OUTPUT` | Pin sinyal kendali aktuator/relay     |
 | Pin VCC Relay |      5V      |    -     | Sumber tegangan modul relay           |
 | Pin GND Relay |     GND      |    -     | Ground modul relay                    |
+
 ## Sour Code
 
-![Percobaan1A](<Sourcode-1.png>)
+![Percobaan2A](<Sourcode-2.png>)
 
 ## Pertanyaan Praktikum
 
-1. Gambarkan diagram alur (flowchart) proses akuisisi data sensor DHT22 pada program di atas! \
+1. Mengapa diperlukan nilai ambang batas (threshold) dalam sistem kendali aktuator berbasis sensor?  \
+**Jawab :** Nilai threshold digunakan sebagai batas bagi mikrokontroler untuk menentukan kondisi sensor yang akan menghasilkan keputusan HIGH atau LOW pada aktuator. 
+
+2. Jelaskan apa yang akan terjadi apabila nilai suhuThreshold diturunkan menjadi sangat rendah, misalnya 20.0! \
+**Jawab:** Aktuator atau relay akan tetap menyala (ON) karena suhu ruangan rata-rata berada di atas 20,0 °C.
+
+3. Apa perbedaan antara kendali aktuator secara terus-menerus (kondisi tunggal) dengan kendali menggunakan histerisis (dua ambang batas)? \  
+**Jawab:** Kondisi dengan satu threshold dapat menyebabkan chattering, yaitu relay terlalu sering ON-OFF saat suhu berubah di sekitar batas. Kendali histerisis memakai dua batas, yaitu batas atas untuk ON dan batas bawah untuk OFF, sehingga aktuator lebih stabil.  
+
+4. Modifikasi program agar menggunakan dua ambang batas (histerisis), misalnya aktuator menyala pada suhu di atas 30°C dan baru mati pada suhu di bawah 28°C, dan berikan penjelasan di setiap baris kode nya dalam bentuk README.md! \
 **Jawab:**
-![Percobaan1A](<Flowchart.png>)
 
-2. Apa fungsi dari perintah isnan() pada program tersebut? \
-**Jawab:** digunakan untuk mengecek apakah data sensor yang diterima tidak valid atau mengalami error. 
-
-3. Jelaskan mengapa diperlukan jeda (delay) minimal sekitar 2 detik antar pembacaan sensor DHT11! \
-**Jawab:** Sensor DHT11 membutuhkan jeda waktu tertentu untuk mengubah data suhu dan kelembaban menjadi sinyal digital yang stabil agar hasil pembacaan tetap akurat.  
-
-4. Modifikasi program agar data suhu dan kelembaban dirata-ratakan dari 5 kali pembacaan sebelum ditampilkan, dan berikan penjelasan di setiap baris kode yang ditambahkan dalam bentuk README.md! \
-**Jawab:**
-
-![Percobaan1A](<Modifikasi_Percobaan-1A.png>)
+![Percobaan2A](<Modifikasi_Percobaan-2A.png>)
